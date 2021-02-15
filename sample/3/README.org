@@ -1,0 +1,31 @@
+* ascii-paint
+
+ascii-paint is a clone of the original ascii-paint by and . The project was
+abandoned in 2011 and was forked by Ben Porter (see the [[https://bitbucket.org/bpio/ascii-paint/overview][bitbucket page]]), which
+was then subsequently abandoned in 2013.
+
+I decided to clone the original repository because Google Code is shutting
+down, and because the original code doesn't compile or link with the latest
+version of libtcod.
+
+* building
+
+The build process is linked to the build process of "libtcod", which you can
+also find in my repositories list. Both installations are described here.
+
+   * Clone the libtcod repository, switch to the tcod directory and build tcod 
+     via =mkdir build && cd build && cmake .. && make=. For this to work you 
+     might have to install some dependencies, namely: sdl-dev, sdl-image-dev 
+     and opengl-dev. Appropriate packages are available for all systems.
+   * Clone the ascii-paint repository, switch to its directory and initialize
+     cmake via =mkdir build && cd build && cmake -D tcod_DIR=$x/build ..= where you
+     substitute =$x= by the directory in which you checked out libtcod.
+   * Build ascii-paint via =make= in der =build/= directory.
+   * You can now start ascii-paint from the root project directory (it needs
+     the =ascii-paint.cfg= file in its working directory).
+
+* status
+
+I got the executable to compile with libtcod again. Mouse and keyboard input
+seems to work. There are some random crashes because of out of bounds checking,
+though.
